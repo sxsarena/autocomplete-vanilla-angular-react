@@ -8,9 +8,9 @@
   },
   "main": "source/assets/js/app.js",
   "scripts": {
-    "preinstall": "npm install -g grunt-cli",
-    "postinstall": "grunt",
-    "server": "grunt server"
+    "preinstall": "",
+    "postinstall": "",
+    "start": "grunt"
   },
   "author": "Hemerson Vianna <hemerson.lourenco@gmail.com> (http://descco.com.br)",
   "license": "MIT",

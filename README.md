@@ -2,18 +2,29 @@
 
 ## Instalação
 
+### Pré-requisitos
+
+- [Node.js](https://nodejs.org/)
+- Grunt 
+
+```bash
+npm install -g grunt-cli
+```
+
+Comando para instalar as dependências:
 ```bash
 npm install
 ```
 
-## Servidor local
+## Visualizar o teste
+
+Roda o GruntJS e inicia o servidor local (abre automaticamente o endereço `http://localhost:8000`, no seu navegador):
 
 ```bash
-npm run server
+npm start
 ```
 
-
-## Instruções
+## Instruções para a execução do teste
 
 - Criar um repositório privado no `https://bitbucket.org/`;
 
