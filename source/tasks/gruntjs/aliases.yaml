@@ -6,17 +6,19 @@ default:
   - 'cmq'
   - 'cssmin'
   - 'imagemin'
-  - htmlmin
-  - connect
-  - watch
+  - 'htmlmin'
+  - 'uglify'
+  - 'connect'
+  - 'watch'
 
 dev:
   - 'sass'
   - 'autoprefixer'
   - 'cmq'
   - 'cssmin'
-  - htmlmin
+  - 'uglify'
+  - 'htmlmin'
 
 server:
-  - connect
-  - watch
+  - 'connect'
+  - 'watch'
