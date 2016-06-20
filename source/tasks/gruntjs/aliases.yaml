@@ -1,0 +1,19 @@
+default:
+  - 'clean'
+  - 'copy'
+  - 'sass'
+  - 'autoprefixer'
+  - 'cmq'
+  - 'cssmin'
+  - htmlmin
+
+dev:
+  - 'sass'
+  - 'autoprefixer'
+  - 'cmq'
+  - 'cssmin'
+  - htmlmin
+
+server:
+  - connect
+  - watch
