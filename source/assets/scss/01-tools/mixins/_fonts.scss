@@ -7,7 +7,7 @@
 /// @param {number} $weight
 ///
 @mixin x-font-face($style-name, $file, $family, $category:"", $weight: 400) {
-    $filepath: "../fonts/" + $family + "/" + $file;
+    $filepath: "/css/fonts/" + $family + "/" + $file;
     @font-face {
             font-family: "#{$style-name}";
             src:url($filepath + ".eot");

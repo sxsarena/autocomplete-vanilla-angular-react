@@ -8,6 +8,7 @@ default:
   - 'imagemin'
   - htmlmin
   - connect
+  - watch
 
 dev:
   - 'sass'

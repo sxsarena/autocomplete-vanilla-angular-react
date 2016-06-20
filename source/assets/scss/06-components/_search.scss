@@ -1,0 +1,18 @@
+.search { text-align: center; }
+
+.search-form { padding: 40px 0; }
+
+.search-form-field {
+  background: $input-background-color url(/css/img/magnifier.png) no-repeat 15px center;
+  border-radius: $search-border-radius;
+  border: 1px solid $input-border-color;
+  box-shadow: $search-box-shadow;
+  color: $input-color;
+  font-size: $input-font-size;
+  height: $input-height;
+  line-height: $input-line-heitgh;
+  min-width: 350px;
+  padding: $search-padding;
+}
+
+.search-results {}

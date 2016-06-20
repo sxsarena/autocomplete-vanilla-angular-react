@@ -1,6 +1,23 @@
+// Base
 $base-font-size         : 62.5% !default;
 $base-font-size-px      : 10px !default;
 $base-line-height       : 1.2 !default;
 $base-text-color        : #333 !default;
 $base-background-color  : #fff !default;
 $base-font-family       :'Source Sans Pro';
+
+// Colors
+$color-primary: #eee;
+
+// Form
+$input-background-color: #fff;
+$input-height: 50px;
+$input-border-color: #cdcdcd;
+$input-color: #4a4a4a;
+$input-font-size: 22px;
+$input-line-heitgh: 1;
+
+// Search
+$search-border-radius: 25px;
+$search-box-shadow: inset 0 0 5px #cdcdcd;
+$search-padding: 14px 25px 14px 50px;

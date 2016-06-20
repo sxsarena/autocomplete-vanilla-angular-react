@@ -9,8 +9,9 @@ module.exports = function(grunt, options){
         livereload: true
       },
       files: [
+        '<%= projectDev %>/html/{,*/, **/}*.html',
         '<%= projectDev %>/scss/{,*/, **/, **/**/*,**/*}*.{scss,sass}',
-        '<%= projectDev %>/js/{,*/,**/}*.{js, jsx}',
+        '<%= projectDev %>/js/{,*/,**/}*.js',
         '<%= projectDir %>/css/{,*/, **/}*.css'
       ],
       tasks: ['dev']
