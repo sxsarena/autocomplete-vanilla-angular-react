@@ -1,12 +1,25 @@
 # Desafio Meliuz
 
+## Instalação
+
+```bash
+npm install
+```
+
+## Servidor local
+
+```bash
+npm run server
+```
+
+
 ## Instruções
 
-- Criar um repositório privado no https://bitbucket.org/;
+- Criar um repositório privado no `https://bitbucket.org/`;
 
-- Compartilhar com permissões de "admin" o projeto conosco (pdf13, carnicelli) para avaliarmos;
+- Compartilhar com permissões de "admin" o projeto conosco (`pdf13`, `carnicelli`) para avaliarmos;
 
-- Baixar os arquivos base do projeto: https://www.dropbox.com/sh/yoyyps308cphw7d/AACGAW0bVh2p95E2QCqyKs9La?dl=0
+- Baixar os arquivos base do projeto: `https://www.dropbox.com/sh/yoyyps308cphw7d/AACGAW0bVh2p95E2QCqyKs9La?dl=0`
 
 - Reproduzir a interface que está na pasta /design do projeto, de acordo com os fluxos e interações propostos;
 

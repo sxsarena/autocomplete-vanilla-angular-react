@@ -9,7 +9,8 @@
   "main": "source/assets/js/app.js",
   "scripts": {
     "preinstall": "npm install -g grunt-cli",
-    "postinstall": "grunt"
+    "postinstall": "grunt",
+    "server": "grunt server"
   },
   "author": "Hemerson Vianna <hemerson.lourenco@gmail.com> (http://descco.com.br)",
   "license": "MIT",
@@ -17,18 +18,20 @@
     "url": "https://bitbucket.org/hemersonvianna/desafio-meliuz/issues"
   },
   "homepage": "https://bitbucket.org/hemersonvianna/desafio-meliuz#readme",
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "grunt": ">=0.4.5",
     "grunt-autoprefixer": "^3.0.3",
     "grunt-combine-media-queries": "~1.0.0",
     "grunt-contrib-clean": "^0.7.0",
+    "grunt-contrib-connect": "^1.0.2",
     "grunt-contrib-copy": "^0.8.2",
     "grunt-contrib-cssmin": "^0.12.2",
     "grunt-contrib-htmlmin": "^0.6.0",
+    "grunt-contrib-imagemin": "^1.0.1",
     "grunt-contrib-watch": "~0.6.1",
     "grunt-sass": "^1.0.0",
+    "imagemin-mozjpeg": "^6.0.0",
     "load-grunt-config": "^0.19.1",
     "node-sass": "^3.8.0"
   }
