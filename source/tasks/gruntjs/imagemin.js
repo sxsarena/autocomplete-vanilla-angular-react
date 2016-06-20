@@ -14,13 +14,12 @@ module.exports = function(grunt, options) {
         use: [mozjpeg()]
       },
       files: [{
-        optimizationLevel: 7,
         expand: true,
-        cwd: '<%= projectDev %>img/',
+        cwd: '<%= projectDev %>/img/',
         src: [
           '{*/,**/,**/*,**/**}*.{png,jpg,gif,svg,ico}'
         ],
-        dest: '<%= projectDir %>css/img/'
+        dest: '<%= projectDir %>/css/img/'
       }]
     }
   };

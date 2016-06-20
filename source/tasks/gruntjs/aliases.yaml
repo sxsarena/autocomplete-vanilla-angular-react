@@ -5,6 +5,7 @@ default:
   - 'autoprefixer'
   - 'cmq'
   - 'cssmin'
+  - 'imagemin'
   - htmlmin
 
 dev:
