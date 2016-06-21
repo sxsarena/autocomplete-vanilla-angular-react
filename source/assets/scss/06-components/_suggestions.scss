@@ -1,0 +1,28 @@
+.suggestions {
+  position: absolute;
+  left: 0;
+  top: 60px;
+  width: 100%;
+}
+
+.suggestions-list {
+  border-radius: 5px;
+  box-shadow: 0 0 5px #cdcdcd;
+  overflow: hidden;
+}
+
+.suggestions-item {
+  background: #fff;
+
+  &:hover { background: #edf4fd; }
+}
+
+.suggestions-button {
+  background: none;
+  border: none;
+  color: #4a4a4a;
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+  padding: 22px 25px;
+}
