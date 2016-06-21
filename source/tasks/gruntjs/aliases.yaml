@@ -7,7 +7,7 @@ default:
   - 'cssmin'
   - 'imagemin'
   - 'htmlmin'
-  - 'uglify'
+  - 'browserify'
   - 'connect'
   - 'watch'
 
@@ -16,7 +16,7 @@ dev:
   - 'autoprefixer'
   - 'cmq'
   - 'cssmin'
-  - 'uglify'
+  - 'browserify'
   - 'htmlmin'
 
 server:
