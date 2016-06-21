@@ -13,19 +13,27 @@
     <link rel="stylesheet" type="text/css" href="/css/style.min.css">
 	</head>
 	<body>
+    <div class="content">
+      <div class="search">
+        <form class="search-form" action="" role="form">
+          <fieldset class="form-fieldset">
+            <legend class="form-legend">Formulário de busca de discografias</legend>
+            <p><input class="search-form-field" id="js-field" type="text" autocomplete="off"></p>
 
-    <div class="search">
+            <div class="suggestions" id="js-suggestions"></div>
+          </fieldset>
+        </form>
 
-      <form class="search-form" action="" role="form">
-        <fieldset class="form-fieldset">
-          <legend class="form-legend">Formulário de busca de discografias</legend>
-          <p><input class="search-form-field" type="text" name=""></p>
+        <div class="search-results" id="js-results"></div>
+        <p class="wrap-highlight"><button class="button-load_more js-load_more hide" type="button">Load More</button></p>
+      </div>
+    </div>
 
-          <div class="search-form-suggestions"></div>
-        </fieldset>
-      </form>
-
-      <div class="search-results"></div>
+    <div class="modal hide" id="js-modal">
+      <div class="modal-dialog">
+        <button class="modal-close" id="js-modal-close" type="button"></button>
+        <div class="modal-content" id="js-modal-content"></div>
+      </div>
     </div>
     <script src="/js/script.min.js" type="text/javascript"></script>
 	</body>
