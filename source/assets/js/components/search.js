@@ -7,7 +7,8 @@ export default class Search {
     this.mediator = mediator;
     this.options  = options;
     this.name = '';
-    this.results = [];
+    this.results;
+    this.maxItems = 5;
 
     this.mediator.on(this.options.eventgetAlbums, (id, name) => {
       me.name = name;
@@ -27,14 +28,21 @@ export default class Search {
   getResults(obj){
     let html = '';
     let index = 0;
+    let classHide = '';
+    this.results = [];
 
     for (var prop in obj) {
       if (obj.hasOwnProperty(prop)) {
         obj[prop]['id'] = index;
         this.results.push(obj[prop]);
-        html += '<li class="search-results-item '+this.options.classItems+'" data-id="'+index+'">';
+
+        if(index > (this.maxItems - 1)){
+          classHide = 'hide';
+        }
+
+        html += '<li class="'+classHide+' search-results-item '+this.options.classItems+'" data-id="'+index+'">';
         html += '<strong class="search-results-item-title">';
-        html += '<img class="search-results-item-image" src="'+obj[prop]['cover_url']+'" alt="'+obj[prop]['title']+'" width="80">';
+        html += '<img class="search-results-item-image" src="'+obj[prop]['cover_url']+'" alt="'+obj[prop]['title']+'" height="80" width="80">';
         html += obj[prop]['title']+'</strong>';
         html += '<em class="search-results-item-year">'+obj[prop]['release_year']+'</em>';
         html += '</li>';
@@ -44,6 +52,7 @@ export default class Search {
 
     document.getElementById(this.options.idContainer).innerHTML = '<ul class="search-results-list">'+html+'</ul>';
     this.actionSearch();
+    this.loadMore();
   }
 
   actionSearch(){
@@ -71,6 +80,31 @@ export default class Search {
         me.mediator.emit('search-action', data);
       });
     }
+  }
+
+  loadMore(){
+    const me = this;
+    const $button = document.getElementById('js-load_more');
+
+    if(this.results.length > this.maxItems ){
+      $button.classList.remove('hide');
+    } else {
+      $button.classList.add('hide');
+    }
+
+    $button.addEventListener('click', function(){
+      [].forEach.call(document.querySelectorAll('.search-results-item.hide'), function(item, idx){
+
+          if (idx < me.maxItems - 1) {
+              item.classList.remove('hide');
+          }
+
+          if ( document.querySelectorAll('.search-results-item.hide').length === 0) {
+              $button.classList.add('hide');
+          }
+
+      });
+    });
   }
 
 }
