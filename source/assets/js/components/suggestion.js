@@ -34,7 +34,7 @@ export default class Suggestion {
   handleKeyDown(url){
     let me = this;
 
-    this.$input.addEventListener('keydown', function(event) {
+    this.$input.addEventListener('keydown', function() {
 
       if(me.$input.value.length > 2){
         MakeRequest(url, function(data) {

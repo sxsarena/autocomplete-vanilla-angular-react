@@ -7,6 +7,7 @@ default:
   - 'cssmin'
   - 'imagemin'
   - 'htmlmin'
+  - 'eslint'
   - 'browserify'
   - 'esdoc'
   - 'connect'
@@ -17,6 +18,7 @@ dev:
   - 'autoprefixer'
   - 'cmq'
   - 'cssmin'
+  - 'eslint'
   - 'browserify'
   - 'htmlmin'
 

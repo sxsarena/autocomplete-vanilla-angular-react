@@ -4,7 +4,7 @@ module.exports = function(grunt, options){
 
   return {
     options: {
-      configFile: '../../../.eslintrc'
+      configFile: './.eslintrc.js'
     },
     site: ['<%= projectDev %>/js/{,*/,**/}*.js']
   };

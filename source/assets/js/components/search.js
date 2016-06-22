@@ -97,7 +97,6 @@ export default class Search {
     let id = null;
     let data = {};
 
-
     for (var i = 0, len = item.length; i < len; i++) {
       item[i].addEventListener('click', function(event) {
         event.preventDefault();

@@ -5,9 +5,6 @@ module.exports = function(grunt, options){
 
   return {
     options: {
-      includePaths: [
-        "source/vendor/prime-itcss/source/scss"
-      ],
       outputStyle: 'compressed'
     },
     site: {
