@@ -28,3 +28,6 @@ server:
 
 doc:
   - 'esdoc'
+
+test:
+  - 'karma'

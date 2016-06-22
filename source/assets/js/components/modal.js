@@ -11,11 +11,13 @@ export default class Modal {
    * @property {EventEmitter} mediator
    * @property {Object} options
    * @property {DOM} $container
+   * @property {string} classHide
    */
   constructor(mediator, options) {
     const me = this;
     this.mediator = mediator;
     this.options  = options;
+    this.classHide= 'hide';
 
     this.$container = document.getElementById(this.options.idContainer);
 
@@ -57,7 +59,7 @@ export default class Modal {
    */
   showModal(data){
     this.$container.querySelector('#'+this.options.idContent).innerHTML = this.getContent(data);
-    this.$container.classList.remove('hide');
+    this.$container.classList.remove(this.classHide);
   }
 
   /**
@@ -79,7 +81,7 @@ export default class Modal {
    * Modal hide
    */
   hideModal(){
-    this.$container.classList.add('hide');
+    this.$container.classList.add(this.classHide);
   }
 
 }

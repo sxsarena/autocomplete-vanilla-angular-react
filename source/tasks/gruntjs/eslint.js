@@ -4,6 +4,7 @@ module.exports = function(grunt, options){
 
   return {
     options: {
+      quiet: true,
       configFile: './.eslintrc.js'
     },
     site: ['<%= projectDev %>/js/{,*/,**/}*.js']
