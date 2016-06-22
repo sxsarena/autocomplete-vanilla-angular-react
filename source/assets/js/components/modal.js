@@ -17,11 +17,17 @@ export default class Modal {
   getContent(data){
     let html = '';
 
-    html += '<span>'+data.name+'</span>';
-    html += '<img src="'+data.cover_url+'">';
-    html += '<strong>'+data.title+'</strong>';
-    html += '<span>'+data.release_year+'</span>';
-    html += '<span>'+data.info+'</span>';
+    html += '<div class="modal-int">';
+    html += '<figure class="modal-wrap_image">';
+    html += '<img class="modal-image" src="'+data.cover_url+'" height="200" width="200">';
+    html += '</figure>';
+    html += '<div class="modal-description">';
+    html += '<span class="modal-category">'+data.name+'</span>';
+    html += '<strong class="modal-title">'+data.title+'</strong>';
+    html += '<em class="modal-date">'+data.release_year+'</em>';
+    html += '<span class="modal-text">'+data.info+'</span>';
+    html += '</div>';
+    html += '</div>';
 
     return html;
 
