@@ -10,7 +10,8 @@
   "scripts": {
     "preinstall": "",
     "postinstall": "",
-    "start": "grunt"
+    "start": "grunt",
+    "test": "grunt mocha"
   },
   "author": "Hemerson Vianna <hemerson.lourenco@gmail.com> (http://descco.com.br)",
   "license": "MIT",

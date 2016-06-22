@@ -24,10 +24,15 @@ Roda o GruntJS e inicia o servidor local (abre automaticamente o endereço `http
 npm start
 ```
 
-## Doc
+## Documentação
 
 `http://localhost:8000/doc/`
 
+## Testes
+
+```bash
+npm test
+```
 
 ## Instruções para a execução do teste
 
