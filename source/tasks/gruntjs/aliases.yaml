@@ -9,7 +9,6 @@ default:
   - 'htmlmin'
   - 'eslint'
   - 'browserify'
-  - 'esdoc'
   - 'connect'
   - 'watch'
 
@@ -25,9 +24,6 @@ dev:
 server:
   - 'connect'
   - 'watch'
-
-doc:
-  - 'esdoc'
 
 test:
   - 'karma'

@@ -41,7 +41,15 @@
   &:hover { background: #edf4fd; }
 }
 
-.search-results-item-image { margin-right: 20px; }
+.search-results-item-image {
+  float: left;
+  margin-right: 20px;
+
+  @media(min-width:$screen-tablet-small) {
+    float: none;
+  }
+
+}
 .search-results-item-title {
   color: #000;
   font-size: 22px;

@@ -3,7 +3,7 @@ module.exports = function(grunt, options){
   var continuousIntegrationMode = grunt.option('ci') || false;
 
   return {
-    test: {
+    site: {
       configFile: './karma.conf.js',
       singleRun: continuousIntegrationMode,
       reporters: continuousIntegrationMode ? ['teamcity'] : ['progress']

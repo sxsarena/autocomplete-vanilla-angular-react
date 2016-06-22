@@ -1,0 +1,8 @@
+{
+  "source": "./source/assets/js",
+  "destination": "./public/doc",
+  "test": {
+    "type": "mocha",
+    "source": "./source/assets/js/tests"
+  }
+}

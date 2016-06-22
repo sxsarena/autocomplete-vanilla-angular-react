@@ -3,7 +3,7 @@ module.exports = function(grunt, options){
   var projectDir = options.projectDir;
 
   return {
-    server: {
+    site: {
       options: {
         port: 8000,
         hostname: 'localhost',

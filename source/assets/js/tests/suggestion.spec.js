@@ -1,17 +1,18 @@
 import Suggestion from '../components/suggestion';
 
+/** @test {Suggestion} */
 describe('Suggestion', () => {
 
   describe('Create request', () => {
     let suggestion;
     let mediator;
     const optSuggestion = {
-            url         : 'http://private-047f-meliuztestefrontend.apiary-mock.com/artists',
-            idField     : 'js-field',
-            idContainer : 'js-suggestions',
-            classItems  : 'js-suggestions-item',
-            classButtons: 'js-suggestions-item'
-          };
+      url         : 'http://private-047f-meliuztestefrontend.apiary-mock.com/artists',
+      idField     : 'js-field',
+      idContainer : 'js-suggestions',
+      classItems  : 'js-suggestions-item',
+      classButtons: 'js-suggestions-item'
+    };
 
     beforeEach(() => {
 
