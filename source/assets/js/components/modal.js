@@ -71,7 +71,7 @@ export default class Modal {
     const me = this;
     let $closeButton = document.getElementById(this.options.idClose);
 
-    $closeButton.addEventListener('click', function(event) {
+    $closeButton.addEventListener('click', (event) => {
       event.preventDefault();
       me.hideModal();
     });

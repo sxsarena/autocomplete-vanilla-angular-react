@@ -34,17 +34,18 @@ export default class Suggestion {
   handleKeyDown(url){
     let me = this;
 
-    this.$input.addEventListener('keydown', function() {
+    this.$input.addEventListener('keydown', () => {
 
-      if(me.$input.value.length > 2){
-        MakeRequest(url, function(data) {
-          me.getSuggestions(data);
-        });
-      } else {
-        me.hideSuggestions();
-        me.$container.querySelector('ul').innerHTML = '';
-      }
-
+      setTimeout(function(){
+        if(me.$input.value.length > 2){
+          MakeRequest(url, (data) => {
+            me.getSuggestions(data);
+          });
+        } else {
+          me.hideSuggestions();
+          me.$container.querySelector('ul').innerHTML = '';
+        }
+       }, 1000);
     });
   }
 
