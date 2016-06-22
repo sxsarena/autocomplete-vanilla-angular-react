@@ -8,6 +8,7 @@ default:
   - 'imagemin'
   - 'htmlmin'
   - 'browserify'
+  - 'esdoc'
   - 'connect'
   - 'watch'
 
@@ -22,3 +23,6 @@ dev:
 server:
   - 'connect'
   - 'watch'
+
+doc:
+  - 'esdoc'
