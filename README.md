@@ -24,6 +24,11 @@ Roda o GruntJS e inicia o servidor local (abre automaticamente o endereço `http
 npm start
 ```
 
+## Doc
+
+`http://localhost:8000/doc/`
+
+
 ## Instruções para a execução do teste
 
 - Criar um repositório privado no `https://bitbucket.org/`;

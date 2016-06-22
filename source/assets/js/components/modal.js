@@ -1,5 +1,17 @@
+/**
+ * Modal class.
+ */
 export default class Modal {
 
+  /**
+   * create instance.
+   * @param {EventEmitter} mediator - Instance of class.
+   * @param {Object} options - settings for the class.
+   * @property {Object} me
+   * @property {EventEmitter} mediator
+   * @property {Object} options
+   * @property {DOM} $container
+   */
   constructor(mediator, options) {
     const me = this;
     this.mediator = mediator;
@@ -14,6 +26,12 @@ export default class Modal {
     });
   }
 
+  /**
+   * Builds html for modal
+   * @param {Object} data - content with the information for the presentation of modal
+   * @returns {string} modal content.
+   * @property {string} html
+   */
   getContent(data){
     let html = '';
 
@@ -33,11 +51,20 @@ export default class Modal {
 
   }
 
+  /**
+   * Modal show
+   * @param {Object} data - content with the information for the presentation of modal
+   */
   showModal(data){
     this.$container.querySelector('#'+this.options.idContent).innerHTML = this.getContent(data);
     this.$container.classList.remove('hide');
   }
 
+  /**
+   * Action to hide the modal
+   * @property {Object} me
+   * @property {DOM} $closeButton
+   */
   actionClose(){
     const me = this;
     let $closeButton = document.getElementById(this.options.idClose);
@@ -48,6 +75,9 @@ export default class Modal {
     });
   }
 
+  /**
+   * Modal hide
+   */
   hideModal(){
     this.$container.classList.add('hide');
   }

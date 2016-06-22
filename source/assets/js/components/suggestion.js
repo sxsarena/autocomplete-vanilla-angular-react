@@ -1,7 +1,19 @@
 import MakeRequest from '../utils/request';
 
+/**
+ * Suggestion class.
+ */
 export default class Suggestion {
 
+  /**
+   * create instance.
+   * @param {EventEmitter} mediator - Instance of class.
+   * @param {Object} options - settings for the class.
+   * @property {EventEmitter} mediator
+   * @property {Object} options
+   * @property {DOM} $container
+   * @property {DOM} $input
+   */
   constructor(mediator, options) {
     this.mediator = mediator;
     this.options  = options;
@@ -14,6 +26,11 @@ export default class Suggestion {
     this.handleKeyDown(options.url);
   }
 
+  /**
+   * Checks the keyDown event in element
+   * @param {string} url - address for suggestions request
+   * @property {Object} me
+   */
   handleKeyDown(url){
     let me = this;
 
@@ -31,6 +48,12 @@ export default class Suggestion {
     });
   }
 
+  /**
+   * Creates HTML with the results list
+   * @param {Object} obj - content with the information for the presentation of list
+   * @property {string} items
+   * @property {string} inputField
+   */
   getSuggestions(obj){
     let items = '';
     let inputField = this.$input.value.toLowerCase();
@@ -51,24 +74,44 @@ export default class Suggestion {
     this.showSuggestions();
   }
 
+  /**
+   * Returns the HTML of each list item
+   * @param {number} id - identification
+   * @param {string} name - artist
+   * @returns {string} item content
+   */
   insertSuggestion(id, name){
     return '<li class="suggestions-item"><button class="suggestions-button '+this.options.classButtons+'" data-id="'+id+'" data-name="'+name+'">'+name+'</button></li>';
   }
 
+  /**
+   * Create the list that have the items
+   */
   createList(){
     let suggestionsList = document.createElement('ul');
     suggestionsList.className = 'suggestions-list';
     this.$container.appendChild(suggestionsList);
   }
 
+  /**
+   * Suggestions show
+   */
   showSuggestions(){
     this.$container.style.display = 'block';
   }
 
+  /**
+   * Suggestions hide
+   */
   hideSuggestions(){
     this.$container.style.display = 'none';
   }
 
+  /**
+   * Action to display the results
+   * @property {Object} me
+   * @property {Nodelist} item
+   */
   actionSuggestions(){
     let me = this;
     let item = document.querySelectorAll('.'+this.options.classItems);

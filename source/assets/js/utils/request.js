@@ -1,9 +1,9 @@
 /**
  * Request to the json type using XMLHttpRequest
  *
- * @param {string} url
- * @param {function} successHandler
- * @param {function} errorHandler
+ * @param {string} url - address for the request
+ * @param {function} successHandler - for success in the request
+ * @param {function} errorHandler - for failed requests
  *
  */
 export default function makeRequest(url, successHandler, errorHandler) {

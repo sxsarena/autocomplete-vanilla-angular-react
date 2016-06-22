@@ -4,6 +4,7 @@ import Modal from './components/modal';
 
 import EventEmitter from 'events';
 
+// Objects with settings for classes
 const optSuggestion = {
   url         : 'http://private-047f-meliuztestefrontend.apiary-mock.com/artists',
   idField     : 'js-field',
@@ -25,6 +26,7 @@ const optModal = {
   eventShowModal: 'search-action'
 }
 
+// Instances of classes
 const mediator    = new EventEmitter();
 const suggestion  = new Suggestion(mediator, optSuggestion);
 const search      = new Search(mediator, optSearch);
