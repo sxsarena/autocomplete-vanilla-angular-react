@@ -1,5 +1,9 @@
 # Desafio Meliuz
 
+## Observações
+
+Foi colocado no código a regra de ser necessário mais de 3 caracteres para aparecer a sugestão de artistas.
+
 ## Instalação
 
 ### Pré-requisitos
