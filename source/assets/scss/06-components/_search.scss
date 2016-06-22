@@ -63,3 +63,11 @@
   text-align: right;
   vertical-align: middle;
 }
+
+// Loading
+.loading {
+  @include x-text-hide;
+  background: url(/css/img/loader.gif) no-repeat center center;
+  min-height: 54px;
+  min-width: 200px;
+}

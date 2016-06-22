@@ -52,12 +52,16 @@ export default class Search {
    * @property {string} html
    * @property {number} index
    * @property {string} classHide
+   * @property {DOM} $container
    */
   getResults(obj){
     let html = '';
     let index = 0;
     let hideItem = '';
+    let $container = document.getElementById(this.options.idContainer);
     this.results = [];
+
+    this.showLoading($container);
 
     for (var prop in obj) {
       if (obj.hasOwnProperty(prop)) {
@@ -78,9 +82,10 @@ export default class Search {
       }
     }
 
-    document.getElementById(this.options.idContainer).innerHTML = '<ul class="search-results-list">'+html+'</ul>';
+    $container.innerHTML = '<ul class="search-results-list">'+html+'</ul>';
     this.actionSearch();
     this.loadMore();
+    this.hideLoading($container);
   }
 
   /**
@@ -133,18 +138,36 @@ export default class Search {
     }
 
     $button.addEventListener('click', function(){
-      [].forEach.call(document.querySelectorAll('.search-results-item.'+me.classHide), function(item, idx){
+      me.showLoading(this);
+      [].forEach.call(document.querySelectorAll('.search-results-item.'+me.classHide), function(item, index){
 
-          if (idx < me.maxItems - 1) {
-              item.classList.remove(me.classHide);
-          }
+        if (index < me.maxItems - 1) {
+          item.classList.remove(me.classHide);
+        }
 
-          if ( document.querySelectorAll('.search-results-item.'+me.classHide).length === 0) {
-              $button.classList.add(me.classHide);
-          }
+        if ( document.querySelectorAll('.search-results-item.'+me.classHide).length === 0) {
+          $button.classList.add(me.classHide);
+        }
 
       });
+      me.hideLoading(this);
     });
+  }
+
+  /**
+   * Loading show
+   * @property {DOM} element
+   */
+  showLoading(element){
+    element.classList.add('loading');
+  }
+
+  /**
+   * Hide show
+   * @property {DOM} element
+   */
+  hideLoading(element){
+    element.classList.remove('loading');
   }
 
 }
