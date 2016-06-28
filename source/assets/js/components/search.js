@@ -17,13 +17,13 @@ export default class Search {
    * @property {number} maxItems
    */
   constructor(mediator, options) {
-    const me = this;
-    this.mediator = mediator;
-    this.options  = options;
-    this.name = '';
+    const me        = this;
+    this.mediator   = mediator;
+    this.options    = options;
+    this.name       = '';
+    this.maxItems   = 5;
+    this.classHide  = 'hide';
     this.results;
-    this.maxItems = 5;
-    this.classHide = 'hide';
 
     this.mediator.on(this.options.eventgetAlbums, (id, name) => {
       me.name = name;
@@ -83,55 +83,58 @@ export default class Search {
     }
 
     $container.innerHTML = '<ul class="search-results-list">'+html+'</ul>';
-    this.actionSearch();
+    this.eventSearch();
     this.loadMore();
     this.hideLoading($container);
   }
 
   /**
-   * Action to display a modal by clicking on a list item
-   * @property {Object} me
-   * @property {NodeList} item
-   * @property {string} name
+   * Event
    * @property {number} id
-   * @property {Object} data
+   * @property {NodeList} item
    */
-  actionSearch(){
-    let me = this;
-    let item = document.querySelectorAll('.'+this.options.classItems);
-    let name = this.name;
-    let id = null;
-    let data = {};
+  eventSearch(){
+    let id   = null;
+    let item  = document.querySelectorAll('.'+this.options.classItems);
 
     for (var i = 0, len = item.length; i < len; i++) {
-      item[i].addEventListener('click', (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-
-        id = this.getAttribute("data-id");
-
-        for (var j = 0, lenResults = me.results.length; j < lenResults; j++) {
-          if(me.results[j].id == id){
-            data = me.results[j];
-            data.name = name;
-          }
-        }
-
-        me.mediator.emit('search-action', data);
-      });
+      id = item[i].getAttribute("data-id");
+      item[i].addEventListener( 'click', (event) => this.actionSearch(event, id), false );
     }
   }
 
   /**
+   * Action to display a modal by clicking on a list item
+   * @param {Event} event
+   * @param {string} id
+   * @property {string} name
+   * @property {Object} data
+   */
+  actionSearch(event, id){
+    let name = this.name;
+    let data = {};
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    for (var j = 0, lenResults = this.results.length; j < lenResults; j++) {
+      if(this.results[j].id == id){
+        data = this.results[j];
+        data.name = name;
+      }
+    }
+
+    this.mediator.emit('search-action', data);
+  }
+
+  /**
    * Treatment for action to show more items
-   * @property {Object} me
    * @property {DOM} $button
    * @property {NodeList} $items
    */
   loadMore(){
-    const me = this;
     const $button = document.getElementById('js-load_more');
-    const $items = document.querySelectorAll('.search-results-item.'+me.classHide);
+    let $items = document.querySelectorAll('.search-results-item.'+this.classHide);
 
     if(this.results.length > this.maxItems ){
       $button.classList.remove(this.classHide);
@@ -139,21 +142,28 @@ export default class Search {
       $button.classList.add(this.classHide);
     }
 
-    $button.addEventListener('click', function() {
-      me.showLoading(this);
+    $button.addEventListener('click', () => this.actionLoadMore($button, $items), false);
+  }
 
-      for (var index = 0, len = $items.length; index <len; index++) {
-        if (index < me.maxItems - 1) {
-          $items[index].classList.remove(me.classHide);
-        }
+  /**
+   * Action to show more items
+   * @param {DOM} $button
+   * @param {NodeList} $items
+   */
+  actionLoadMore($button, $items){
+    this.showLoading($button);
 
-        if ( len === 0) {
-          $button.classList.add(me.classHide);
-        }
+    for (let index = 0, len = $items.length; index <len; index++) {
+      if (index < this.maxItems - 1) {
+        $items[index].classList.remove(this.classHide);
       }
 
-      me.hideLoading(this);
-    });
+      if ( len < this.maxItems ) {
+        $button.classList.add(this.classHide);
+      }
+    }
+
+    this.hideLoading($button);
   }
 
   /**

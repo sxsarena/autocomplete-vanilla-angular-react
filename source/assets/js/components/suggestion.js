@@ -21,31 +21,177 @@ export default class Suggestion {
     this.$container = document.getElementById(this.options.idContainer);
     this.$input = document.getElementById(this.options.idField);
 
+    this.minCharacters = 2;
+    this.oldInputValue;
+
+    this.keys = {
+      up   : 38,
+      down : 40
+    };
+    this.currentItem = null;
+    this.mouseList = true;
+
     this.createList();
 
-    this.handleKeyDown(options.url);
+    this.handleFocusIn();
+    this.handleFocusOut();
+    this.handleKeyUp();
+    this.handleKeyDown();
+    this.handleKeyPress();
+  }
+
+  /**
+   *
+   */
+  validateField(){
+    this.$input.value = this.$input.value.replace(/[^a-zA-ZãâÃÂáÁàÀêÊéÉèÈíÍìÌôÔõÕóÓòÒúÚùÙûÛçÇ0-9 ]/g, "");
+  }
+
+  /**
+   *
+   */
+   validateRequest(){
+    let amountCharacteres = this.$input.value.length;
+
+    if(amountCharacteres >= this.minCharacters && (amountCharacteres !== this.oldInputValue)){
+      this.requestArtists();
+    } else if(amountCharacteres < this.minCharacters) {
+      this.hideSuggestions();
+    }
+   }
+
+  /**
+   *
+   */
+  requestArtists(){
+    MakeRequest(this.options.url, (data) => {
+      this.getSuggestions(data);
+    });
+  }
+
+  validateList(event){
+    let amountItems = document.querySelectorAll('.'+this.options.classButtons).length;
+
+    if(amountItems > 0){
+      this.handleKeyList(event, amountItems);
+    }
+  }
+
+  /**
+   *
+   */
+  handleKeyList(event, amountItems){
+    let goToIndex = this.currentItem;
+    let amount = amountItems-1;
+
+    switch(event.keyCode) {
+      case this.keys.up:
+        if(goToIndex !== null && goToIndex > 0) {
+          goToIndex--;
+        }
+        break;
+
+      case this.keys.down:
+        if(goToIndex === null){
+          goToIndex = 0;
+        } else if(this.currentItem >= amount) {
+          goToIndex = amount;
+        } else {
+          goToIndex++;
+        }
+        break;
+    }
+
+    this.activeKeyItem(goToIndex, amount);
+  }
+
+  /**
+   *
+   */
+  verifyIndexList(index, amount){
+    if(index < 0 ){
+      index = 0;
+    } else if (index > amount){
+      index = amount;
+    }
+
+    return index;
+  }
+
+  /**
+   *
+   */
+  activeKeyItem(index, amount){
+    let $elements = document.querySelectorAll('.'+this.options.classButtons);
+    this.currentItem = this.verifyIndexList(index, amount);
+
+    if(this.currentItem !== null){
+      for (var i = 0, len = $elements.length; i < len; i++) {
+        $elements[i].classList.remove('active');
+      }
+
+      $elements[this.currentItem].classList.add('active');
+      $elements[this.currentItem].focus();
+    }
   }
 
   /**
    * Checks the keyDown event in element
-   * @param {string} url - address for suggestions request
-   * @property {Object} me
    */
-  handleKeyDown(url){
-    let me = this;
+  handleKeyPress(){
+    this.$input.addEventListener( 'keypress', () => this.validateField(), false );
+  }
 
-    this.$input.addEventListener('keydown', () => {
+  /**
+   * Checks the keyDown event in element
+   */
+  handleKeyDown(){
+    this.$input.addEventListener( 'keydown', (event) => {
+      this.validateField();
+      this.oldInputValue = this.$input.value.length;
+      this.validateList(event);
+    });
 
-      setTimeout(function(){
-        if(me.$input.value.length > 2){
-          MakeRequest(url, (data) => {
-            me.getSuggestions(data);
-          });
-        } else {
-          me.hideSuggestions();
-          me.$container.querySelector('ul').innerHTML = '';
-        }
-       }, 1000);
+    this.$container.querySelector('ul').addEventListener( 'keydown', (event) => {
+      this.validateList(event);
+    });
+  }
+
+  /**
+   * Checks the keyUp event in element
+   */
+  handleKeyUp(){
+    this.$input.addEventListener( 'keyup', () => {
+      setTimeout(() => {
+        this.validateField();
+        this.validateRequest();
+      }, 500);
+    });
+  }
+
+  /**
+   * Checks the FocusIn event in element
+   */
+  handleFocusIn() {
+    this.$input.addEventListener( 'focus', () => {
+      if(this.$input.value.length >= this.minCharacters){
+        this.requestArtists();
+      }
+    });
+  }
+
+  /**
+   * Checks the FocusOut event in element
+   */
+  handleFocusOut() {
+    const me = this;
+    let $elements;
+    this.$input.addEventListener( 'blur', function() {
+      $elements = document.querySelectorAll('.'+me.options.classButtons+'.active');
+
+      if($elements.length === 0 && me.mouseList){
+        me.hideSuggestions();
+      }
     });
   }
 
@@ -69,10 +215,21 @@ export default class Suggestion {
       }
     }
 
+    if(items.length === 0){
+      items = this.insertDefault();
+    }
+
     this.$container.querySelector('ul').innerHTML = items;
 
     this.actionSuggestions();
     this.showSuggestions();
+  }
+
+  /**
+   *
+   */
+  insertDefault(){
+    return '<li class="suggestions-item---empty">Sem resultados</li>';
   }
 
   /**
@@ -99,6 +256,7 @@ export default class Suggestion {
    */
   showSuggestions(){
     this.$container.style.display = 'block';
+    document.getElementsByTagName('html')[0].style.overflowY = 'hidden';
   }
 
   /**
@@ -106,22 +264,34 @@ export default class Suggestion {
    */
   hideSuggestions(){
     this.$container.style.display = 'none';
+    document.getElementsByTagName('html')[0].style.overflowY = 'scroll';
+    this.$container.querySelector('ul').innerHTML = '';
+    this.currentItem = null;
   }
 
   /**
    * Action to display the results
    * @property {Object} me
-   * @property {Nodelist} item
+   * @property {Nodelist} items
    */
   actionSuggestions(){
-    let me = this;
-    let item = document.querySelectorAll('.'+this.options.classItems);
+    const me = this;
+    let items = document.querySelectorAll('.'+this.options.classButtons);
 
-    for (var i = 0, len = item.length; i < len; i++) {
-      item[i].addEventListener('click', function(event) {
+    for (var i = 0, len = items.length; i < len; i++) {
+      items[i].addEventListener('click', function(event) {
         event.preventDefault();
+        event.stopPropagation();
         me.hideSuggestions();
         me.mediator.emit('suggestion-action', this.getAttribute("data-id"), this.getAttribute("data-name"));
+      });
+
+      items[i].addEventListener('mouseenter', () => {
+        me.mouseList = false;
+      });
+
+      items[i].addEventListener('mouseleave', () => {
+        me.mouseList = true;
       });
     }
   }
