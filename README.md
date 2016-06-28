@@ -2,7 +2,7 @@
 
 ## Observações
 
-Foi colocado no código a regra de ser necessário mais de 3 caracteres para aparecer a sugestão de artistas.
+Foi colocado no código a regra de ser necessário mais de 2 caracteres para aparecer a sugestão de artistas.
 
 ## Instalação
 
@@ -20,7 +20,7 @@ Comando para instalar as dependências:
 npm install
 ```
 
-## Visualizar o teste
+## Visualizar
 
 Roda o GruntJS e inicia o servidor local (abre automaticamente o endereço `http://localhost:8000`, no seu navegador):
 
@@ -37,6 +37,14 @@ npm start
 ```bash
 npm test
 ```
+
+## Artistas para a busca
+
+- Pavement
+- Radiohead
+- Ramones
+- Rancid
+
 
 ## Instruções para a execução do teste
 
