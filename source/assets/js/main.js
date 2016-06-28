@@ -12,7 +12,7 @@ const optSuggestion = {
   idField     : 'js-field',
   idContainer : 'js-suggestions',
   classItems  : 'js-suggestions-item',
-  classButtons: 'js-suggestions-item'
+  classButtons: 'js-suggestions-button'
 };
 
 /**
