@@ -5,7 +5,7 @@ describe('Search', () => {
 
   describe('Init', () => {
     let search;
-    let mediator;
+    let mediator = { on: () => {} };
     const optSearch = {
       idContainer   : 'js-results',
       classItems    : 'js-search-item',
@@ -14,15 +14,8 @@ describe('Search', () => {
 
     beforeEach(() => {
 
-      var fixture = '<div class="search">' +
-      '<form class="search-form" action="" role="form">' +
-        '<fieldset class="form-fieldset">' +
-          '<legend class="form-legend">Formulário de busca de discografias</legend>' +
-          '<p><input class="search-form-field" id="js-field" type="text" autocomplete="off"></p>' +
-          '<div class="suggestions" id="js-suggestions"></div>' +
-        '</fieldset>' +
-      '</form>' +
-      '</div>';
+      let fixture = '<div class="search-results" id="js-results"></div>'+
+        '<p class="wrap-highlight"><button class="button-load_more hide" id="js-load_more" type="button">Load More</button></p>';
 
       document.body.insertAdjacentHTML(
         'afterbegin',

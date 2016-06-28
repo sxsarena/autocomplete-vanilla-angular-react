@@ -5,7 +5,7 @@ describe('Modal', () => {
 
   describe('Init', () => {
     let modal;
-    let mediator;
+    let mediator = { on: () => {} };
     const optModal = {
       idContainer   : 'js-modal',
       idContent     : 'js-modal-content',
@@ -15,14 +15,11 @@ describe('Modal', () => {
 
     beforeEach(() => {
 
-      var fixture = '<div class="search">' +
-      '<form class="search-form" action="" role="form">' +
-        '<fieldset class="form-fieldset">' +
-          '<legend class="form-legend">Formulário de busca de discografias</legend>' +
-          '<p><input class="search-form-field" id="js-field" type="text" autocomplete="off"></p>' +
-          '<div class="suggestions" id="js-suggestions"></div>' +
-        '</fieldset>' +
-      '</form>' +
+      let fixture = '<div class="modal hide" id="js-modal">'+
+        '<div class="modal-dialog">'+
+          '<button class="modal-close" id="js-modal-close" type="button"></button>'+
+          '<div class="modal-content" id="js-modal-content"></div>'+
+        '</div>'+
       '</div>';
 
       document.body.insertAdjacentHTML(

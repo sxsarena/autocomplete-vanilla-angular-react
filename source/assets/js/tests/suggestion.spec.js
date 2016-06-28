@@ -5,7 +5,7 @@ describe('Suggestion', () => {
 
   describe('Create request', () => {
     let suggestion;
-    let mediator;
+    let mediator = { on: () => {} };
     const optSuggestion = {
       url         : 'http://private-047f-meliuztestefrontend.apiary-mock.com/artists',
       idField     : 'js-field',
@@ -16,7 +16,7 @@ describe('Suggestion', () => {
 
     beforeEach(() => {
 
-      var fixture = '<div class="search">' +
+      let fixture = '<div class="search">' +
       '<form class="search-form" action="" role="form">' +
         '<fieldset class="form-fieldset">' +
           '<legend class="form-legend">Formulário de busca de discografias</legend>' +
