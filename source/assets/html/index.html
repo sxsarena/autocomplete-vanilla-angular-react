@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="pt-BR" xml:lang="pt-BR">
+<html class="no-js" lang="pt-BR" xml:lang="pt-BR" itemscope="itemscope" itemtype="http://schema.org/WebPage">
 	<head>
 		<meta charset="utf-8">
 		<title>Desafio Meliuz</title>
@@ -18,7 +18,7 @@
         <form class="search-form" action="" role="form">
           <fieldset class="form-fieldset">
             <legend class="form-legend">Formulário de busca de discografias</legend>
-            <p><input class="search-form-field" id="js-field" type="text" autocomplete="off"></p>
+            <p><input class="search-form-field" id="js-field" type="text" autocomplete="off" tabindex="0" role="combobox" maxlength="100"></p>
 
             <div class="suggestions" id="js-suggestions"></div>
           </fieldset>
@@ -29,7 +29,7 @@
       </div>
     </div>
 
-    <div class="modal hide" id="js-modal">
+    <div class="modal hide" id="js-modal" role="dialog">
       <div class="modal-dialog">
         <button class="modal-close" id="js-modal-close" type="button"></button>
         <div class="modal-content" id="js-modal-content"></div>
