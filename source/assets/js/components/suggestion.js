@@ -136,10 +136,6 @@ export default class Suggestion {
       $elements[this.currentItem].focus();
 
       this.$container.querySelector('ul').scrollTop = parseInt(itemHeight) * index;
-
-      console.warn(parseInt(itemHeight));
-      console.warn(index);
-      console.warn(parseInt(itemHeight) * index);
     }
   }
 
