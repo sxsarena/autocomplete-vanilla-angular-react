@@ -236,10 +236,12 @@ export default class Suggestion {
    * @param {Object} obj - content with the information for the presentation of list
    * @property {string} items
    * @property {string} inputField
+   * @property {boolean} itemDefault
    */
   getSuggestions(obj){
     let items = '';
     let inputField = this.$input.value.toLowerCase();
+    let itemDefault = false;
 
     this.hideSuggestions();
 
@@ -253,12 +255,13 @@ export default class Suggestion {
 
     if(items.length === 0){
       items = this.insertDefault();
+      itemDefault = true;
     }
 
     this.$container.querySelector('ul').innerHTML = items;
 
     this.actionSuggestions();
-    this.showSuggestions();
+    this.showSuggestions(itemDefault);
   }
 
   /**
@@ -290,10 +293,13 @@ export default class Suggestion {
 
   /**
    * Suggestions show
+   * @param {number} itemDefault
    */
-  showSuggestions(){
+  showSuggestions(itemDefault){
     this.$container.style.display = 'block';
-    document.getElementsByTagName('html')[0].style.overflowY = 'hidden';
+    if(!itemDefault){
+      document.getElementsByTagName('html')[0].style.overflowY = 'hidden';
+    }
   }
 
   /**
