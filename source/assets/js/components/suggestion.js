@@ -13,6 +13,11 @@ export default class Suggestion {
    * @property {Object} options
    * @property {DOM} $container
    * @property {DOM} $input
+   * @property {number} minCharacters
+   * @property {string} oldInputAmountValue
+   * @property {string} oldInputValue
+   * @property {boolean} firstKey
+   * @property {Object} keys
    */
   constructor(mediator, options) {
     this.mediator = mediator;
@@ -315,6 +320,7 @@ export default class Suggestion {
         event.preventDefault();
         event.stopPropagation();
         me.hideSuggestions();
+        me.$input.value = this.innerText;
         me.mediator.emit('suggestion-action', this.getAttribute("data-id"), this.getAttribute("data-name"));
       });
 
