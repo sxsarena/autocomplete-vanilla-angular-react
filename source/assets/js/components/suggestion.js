@@ -225,7 +225,7 @@ export default class Suggestion {
     this.$input.addEventListener( 'blur', function() {
       $elements = document.querySelectorAll('.'+me.options.classButtons+'.active');
 
-      if($elements.length === 0 && me.mouseList){
+      if(($elements.length === 0 && me.mouseList) || document.querySelectorAll('.'+me.options.classButtons).length === 0){
         me.hideSuggestions();
       }
     });
