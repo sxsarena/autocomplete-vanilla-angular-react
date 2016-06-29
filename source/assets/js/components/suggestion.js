@@ -41,14 +41,15 @@ export default class Suggestion {
   }
 
   /**
-   *
+   * Validation of the field to only alphanumeric and spaces
    */
   validateField(){
     this.$input.value = this.$input.value.replace(/[^a-zA-ZãâÃÂáÁàÀêÊéÉèÈíÍìÌôÔõÕóÓòÒúÚùÙûÛçÇ0-9 ]/g, "");
   }
 
   /**
-   *
+   * Validation to execute the request
+   * @property {string} amountCharacteres
    */
    validateRequest(){
     let amountCharacteres = this.$input.value.length;
@@ -61,7 +62,7 @@ export default class Suggestion {
    }
 
   /**
-   *
+   * The request of artists
    */
   requestArtists(){
     MakeRequest(this.options.url, (data) => {
@@ -69,6 +70,11 @@ export default class Suggestion {
     });
   }
 
+  /**
+   * Validates the suggestion list has its elements
+   * @param {Event} event
+   * @property {string} amountItems
+   */
   validateList(event){
     let amountItems = document.querySelectorAll('.'+this.options.classButtons).length;
 
@@ -78,7 +84,11 @@ export default class Suggestion {
   }
 
   /**
-   *
+   * Identifies the key pressed on the keyboard
+   * @param {Event} event
+   * @param {number} amountItems
+   * @property {number} goToIndex
+   * @property {number} amount
    */
   handleKeyList(event, amountItems){
     let goToIndex = this.currentItem;
@@ -107,7 +117,10 @@ export default class Suggestion {
   }
 
   /**
-   *
+   * Validates the index informed
+   * @param {number} index
+   * @param {number} amount
+   * @returns {number} index
    */
   verifyIndexList(index, amount){
     if(index < 0 ){
@@ -120,7 +133,9 @@ export default class Suggestion {
   }
 
   /**
-   *
+   * Identifies the active element of the list
+   * @property {number} itemHeight
+   * @property {DOM} $elements
    */
   activeKeyItem(index, amount){
     let itemHeight = document.querySelectorAll('.'+this.options.classButtons)[0].clientHeight;
@@ -140,7 +155,7 @@ export default class Suggestion {
   }
 
   /**
-   * Checks the keyDown event in element
+   * Checks the KeyPress event in element
    */
   handleKeyPress(){
     this.$input.addEventListener( 'keypress', () => this.validateField(), false );
@@ -230,7 +245,8 @@ export default class Suggestion {
   }
 
   /**
-   *
+   * Returns the HTML default of list
+   * @returns {string} item default
    */
   insertDefault(){
     return '<li class="suggestions-item---empty">Sem resultados</li>';
