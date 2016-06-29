@@ -22,7 +22,9 @@ export default class Suggestion {
     this.$input = document.getElementById(this.options.idField);
 
     this.minCharacters = 2;
+    this.oldInputAmountValue;
     this.oldInputValue;
+    this.firstKey = true;
 
     this.keys = {
       up   : 38,
@@ -54,7 +56,7 @@ export default class Suggestion {
    validateRequest(){
     let amountCharacteres = this.$input.value.length;
 
-    if(amountCharacteres >= this.minCharacters && (amountCharacteres !== this.oldInputValue)){
+    if(amountCharacteres >= this.minCharacters && (amountCharacteres !== this.oldInputAmountValue)){
       this.requestArtists();
     } else if(amountCharacteres < this.minCharacters) {
       this.hideSuggestions();
@@ -94,10 +96,19 @@ export default class Suggestion {
     let goToIndex = this.currentItem;
     let amount = amountItems-1;
 
+    if((event.keyCode === this.keys.up || event.keyCode === this.keys.down) && this.firstKey){
+      this.oldInputValue = this.$input.value;
+      this.firstKey = false;
+    }
+
     switch(event.keyCode) {
       case this.keys.up:
         if(goToIndex !== null && goToIndex > 0) {
           goToIndex--;
+        } else if(goToIndex === 0) {
+          this.$input.value = this.oldInputValue;
+          this.$input.focus();
+          return;
         }
         break;
 
@@ -149,6 +160,7 @@ export default class Suggestion {
 
       $elements[this.currentItem].classList.add('active');
       $elements[this.currentItem].focus();
+      this.$input.value = $elements[this.currentItem].innerText;
 
       this.$container.querySelector('ul').scrollTop = parseInt(itemHeight) * index;
     }
@@ -167,7 +179,7 @@ export default class Suggestion {
   handleKeyDown(){
     this.$input.addEventListener( 'keydown', (event) => {
       this.validateField();
-      this.oldInputValue = this.$input.value.length;
+      this.oldInputAmountValue = this.$input.value.length;
       this.validateList(event);
     });
 
