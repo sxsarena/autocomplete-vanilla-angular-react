@@ -93,6 +93,7 @@ export default class Suggestion {
 
       case this.keys.down:
         if(goToIndex === null){
+          event.preventDefault();
           goToIndex = 0;
         } else if(this.currentItem >= amount) {
           goToIndex = amount;
@@ -122,6 +123,7 @@ export default class Suggestion {
    *
    */
   activeKeyItem(index, amount){
+    let itemHeight = document.querySelectorAll('.'+this.options.classButtons)[0].clientHeight;
     let $elements = document.querySelectorAll('.'+this.options.classButtons);
     this.currentItem = this.verifyIndexList(index, amount);
 
@@ -132,6 +134,12 @@ export default class Suggestion {
 
       $elements[this.currentItem].classList.add('active');
       $elements[this.currentItem].focus();
+
+      this.$container.querySelector('ul').scrollTop = parseInt(itemHeight) * index;
+
+      console.warn(parseInt(itemHeight));
+      console.warn(index);
+      console.warn(parseInt(itemHeight) * index);
     }
   }
 
