@@ -1,80 +1,55 @@
-# Desafio Meliuz
+# Autocomplete
 
-## Observações
+[![licence mit](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](http://hemersonvianna.mit-license.org/)
+[![issues](https://img.shields.io/github/issues/side-by-side-arena/autocomplete-vanilla-angular-react.svg?style=flat-square)](https://github.com/side-by-side-arena/autocomplete-vanilla-angular-react/issues)
 
-Foi colocado no código a regra de ser necessário mais de 2 caracteres para aparecer a sugestão de artistas.
-
-## Instalação
-
-### Pré-requisitos
+## Install
 
 - [Node.js](https://nodejs.org/)
 - Grunt 
 
 ```bash
 npm install -g grunt-cli
-```
-
-Comando para instalar as dependências:
-```bash
 npm install
 ```
 
-## Visualizar
+## Usage
 
-Roda o GruntJS e inicia o servidor local (abre automaticamente o endereço `http://localhost:8000`, no seu navegador):
+(automatically opens the address `http://localhost:8000`):
 
 ```bash
 npm start
 ```
 
-## Documentação
+## Documentation
 
 `http://localhost:8000/doc/`
 
-## Testes
+## Tests
 
 ```bash
 npm test
 ```
 
-## Artistas para a busca
+## Artists to search
 
 - Pavement
 - Radiohead
 - Ramones
 - Rancid
 
+## Contributing
 
-## Instruções para a execução do teste
+- Fork it!
+- Create your feature branch: `git checkout -b my-new-feature`
+- Commit your changes: `git commit -m 'Add some feature'`
+- Push to the branch: `git push origin my-new-feature`
+- Submit a pull request
 
-- Criar um repositório privado no `https://bitbucket.org/`;
+## Log
 
-- Compartilhar com permissões de "admin" o projeto conosco (`pdf13`, `carnicelli`) para avaliarmos;
+Check [Releases](https://github.com/side-by-side-arena/autocomplete-vanilla-angular-react/releases) for detailed changelog.
 
-- Baixar os arquivos base do projeto: `https://www.dropbox.com/sh/yoyyps308cphw7d/AACGAW0bVh2p95E2QCqyKs9La?dl=0`
+## License
 
-- Reproduzir a interface que está na pasta /design do projeto, de acordo com os fluxos e interações propostos;
-
-- Usar a fonte Source Sans Pro (`https://www.google.com/fonts#UsePlace:use/Collection:Source+Sans+Pro`);
-
-- Usar como fonte de dados para lista de artistas, o JSON que está em: `http://private-047f-meliuztestefrontend.apiary-mock.com/artists`
-
-- Usar como fonte de dados para a lista de álbuns, o JSON que está em: `http://private-047f-meliuztestefrontend.apiary-mock.com/artists/{artist_id}/discography`, alterando {artist_id} pelo ID do artista desejado;
-
-- Faça as páginas terem comportamento responsivo;
-
-- Não é permitido o uso de frameworks CSS, como Bootstrap e Foundation;
-
-- É permitido o uso de jQuery.
-
-O que avaliaremos:
-
-- Qualidade do código gerado (HTML estruturado e semântico);
-- Capacidade de criar um código modular, limpo, organizado e de fácil compreensão por outros programadores;
-- Desempenho do código criado;
-- Capacidade de tomar decisões para os pontos não especificados no fluxo.
-
-Se tiver alguma dúvida, use o bom senso e, se precisar, deixe isso registrado na documentação do projeto.
-
-Esperamos que o tempo gasto com esse projeto seja em torno de 4 horas e que nos mande o resultado em até 2 dias.
+[MIT license](http://hemersonvianna.mit-license.org/) © Hemerson Vianna
