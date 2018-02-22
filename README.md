@@ -1,7 +1,7 @@
 # Autocomplete
 
 [![licence mit](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](http://hemersonvianna.mit-license.org/)
-[![issues](https://img.shields.io/github/issues/side-by-side-arena/autocomplete-vanilla-angular-react.svg?style=flat-square)](https://github.com/side-by-side-arena/autocomplete-vanilla-angular-react/issues)
+[![issues](https://img.shields.io/github/issues/descco-arena/autocomplete-vanilla-angular-react.svg?style=flat-square)](https://github.com/descco-arena/autocomplete-vanilla-angular-react/issues)
 
 ## Install
 
@@ -48,7 +48,7 @@ npm test
 
 ## Log
 
-Check [Releases](https://github.com/side-by-side-arena/autocomplete-vanilla-angular-react/releases) for detailed changelog.
+Check [Releases](https://github.com/descco-arena/autocomplete-vanilla-angular-react/releases) for detailed changelog.
 
 ## License
 
