@@ -1,7 +1,12 @@
 # Autocomplete
 
 [![licence mit](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](http://hemersonvianna.mit-license.org/)
-[![issues](https://img.shields.io/github/issues/descco-arena/autocomplete-vanilla-angular-react.svg?style=flat-square)](https://github.com/descco-arena/autocomplete-vanilla-angular-react/issues)
+[![GitHub issues](https://img.shields.io/github/issues/org-arena/autocomplete-vanilla-angular-react.svg)](https://github.com/org-arena/autocomplete-vanilla-angular-react/issues)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/org-arena/autocomplete-vanilla-angular-react.svg)
+![GitHub Release Date](https://img.shields.io/github/release-date/org-arena/autocomplete-vanilla-angular-react.svg)
+![GitHub top language](https://img.shields.io/github/languages/top/org-arena/autocomplete-vanilla-angular-react.svg)
+![GitHub repo size](https://img.shields.io/github/repo-size/org-arena/autocomplete-vanilla-angular-react.svg)
+![GitHub All Releases](https://img.shields.io/github/downloads/org-arena/autocomplete-vanilla-angular-react/total.svg)
 
 ## Install
 
@@ -48,7 +53,7 @@ npm test
 
 ## Log
 
-Check [Releases](https://github.com/descco-arena/autocomplete-vanilla-angular-react/releases) for detailed changelog.
+Check [Releases](https://github.com/org-arena/autocomplete-vanilla-angular-react/releases) for detailed changelog.
 
 ## License
 
