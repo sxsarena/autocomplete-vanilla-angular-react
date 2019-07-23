@@ -1,6 +1,6 @@
 {
   "name": "desafio-meliuz",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "repository": {
     "type": "git",
@@ -12,7 +12,7 @@
     "postinstall": "",
     "start": "grunt && npm run doc",
     "test": "grunt test",
-    "doc":"esdoc -c esdoc.json"
+    "doc": "esdoc -c esdoc.json"
   },
   "author": "Hemerson Vianna <hemerson.lourenco@gmail.com> (http://descco.com.br)",
   "license": "MIT",
