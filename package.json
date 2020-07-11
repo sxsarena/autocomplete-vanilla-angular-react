@@ -1,10 +1,10 @@
 {
-  "name": "desafio-meliuz",
+  "name": "autocomplete-vanilla-angular-react",
   "version": "0.0.2",
   "description": "",
   "repository": {
     "type": "git",
-    "url": "git+https://bitbucket.org/hemersonvianna/desafio-meliuz.git"
+    "url": "git+https://bitbucket.org/sxsarena/autocomplete-vanilla-angular-react.git"
   },
   "main": "source/assets/js/app.js",
   "scripts": {
@@ -14,12 +14,12 @@
     "test": "grunt test",
     "doc": "esdoc -c esdoc.json"
   },
-  "author": "Hemerson Vianna <hemerson.lourenco@gmail.com> (http://descco.com.br)",
+  "author": "Hemerson Vianna <hemerson.lourenco@gmail.com> (https://nerdcalistenico.com.br)",
   "license": "MIT",
   "bugs": {
-    "url": "https://bitbucket.org/hemersonvianna/desafio-meliuz/issues"
+    "url": "https://bitbucket.org/sxsarena/autocomplete-vanilla-angular-react/issues"
   },
-  "homepage": "https://bitbucket.org/hemersonvianna/desafio-meliuz#readme",
+  "homepage": "https://bitbucket.org/sxsarena/autocomplete-vanilla-angular-react#readme",
   "dependencies": {},
   "devDependencies": {
     "babel": "^6.5.2",
